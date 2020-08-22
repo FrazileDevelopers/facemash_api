@@ -14,57 +14,72 @@ class _ShowImageState extends State<ShowImage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
+    final mq = MediaQuery.of(context);
+    final height = mq.size.height;
+    final width = mq.size.width;
     return Scaffold(
       body: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: width,
+        height: height,
         child: ClipRRect(
           child: Stack(
             children: <Widget>[
               CachedNetworkImage(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: height,
+                width: width,
                 imageUrl: widget.imgpath,
                 fit: BoxFit.cover,
                 alignment: Alignment.center,
                 fadeInCurve: Curves.bounceIn,
-                fadeInDuration: Duration(milliseconds: 500),
+                fadeInDuration: Duration(
+                  milliseconds: 500,
+                ),
               ),
               Positioned(
-                bottom: MediaQuery.of(context).size.height * .07,
-                left: MediaQuery.of(context).size.width * .08,
-                right: MediaQuery.of(context).size.width * .27,
+                bottom: height * .07,
+                left: width * .08,
+                right: width * .27,
                 child: MaterialButton(
                   splashColor: Colors.grey[100],
-                  color: Colors.white.withOpacity(.47),
+                  color: Colors.white.withOpacity(
+                    .47,
+                  ),
                   textColor: Colors.white,
                   elevation: 5.0,
                   height: 40.0,
                   // focusColor: Colors.orange,
                   // minWidth: 50.0,
-                  child: Text("Download"),
+                  child: Text(
+                    "Download",
+                  ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40.0),
+                    borderRadius: BorderRadius.circular(
+                      40.0,
+                    ),
                   ),
                   onPressed: () {},
                 ),
               ),
               Positioned(
-                bottom: MediaQuery.of(context).size.height * .07,
-                // right: MediaQuery.of(context).size.width * .2,
-                left: MediaQuery.of(context).size.width * .72,
+                bottom: height * .07,
+                // right: width * .2,
+                left: width * .72,
                 child: IconButton(
-                  icon: Icon(Icons.share),
+                  icon: Icon(
+                    Icons.share,
+                  ),
                   onPressed: () {},
                   color: Colors.white,
                 ),
               ),
               Positioned(
-                bottom: MediaQuery.of(context).size.height * .07,
-                // right: MediaQuery.of(context).size.width * .2,
-                left: MediaQuery.of(context).size.width * .84,
+                bottom: height * .07,
+                // right: width * .2,
+                left: width * .84,
                 child: IconButton(
-                  icon: Icon(Icons.wallpaper),
+                  icon: Icon(
+                    Icons.wallpaper,
+                  ),
                   onPressed: () {},
                   color: Colors.white,
                 ),
@@ -75,7 +90,10 @@ class _ShowImageState extends State<ShowImage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    AppBar(elevation: 0.0, backgroundColor: Colors.transparent),
+                    AppBar(
+                      elevation: 0.0,
+                      backgroundColor: Colors.transparent,
+                    ),
                   ],
                 ),
               ),

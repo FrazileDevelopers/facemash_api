@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:facemash_api/constanse/facemash.dart';
 import 'package:facemash_api/pages/show_image.dart';
 import 'package:facemash_api/services/girls.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +14,13 @@ class Walls extends StatefulWidget {
 }
 
 class _WallsState extends State<Walls> {
-  String url = 'https://facemash.co.in/api.php?cat=';
   Images usersapi;
   bool isLoading = false;
-  String imageurl = 'http://facemash.co.in/images/';
   fetchData() async {
     setState(() {
       isLoading = true;
     });
-    var res = await http.get(url + widget.cat);
+    var res = await http.get(Facemash.wallsurl + widget.cat);
     var decodedRes = jsonDecode(res.body);
     // print(decodedRes.toString());
     usersapi = Images.fromJson(decodedRes);
@@ -45,7 +44,7 @@ class _WallsState extends State<Walls> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Wallpaper'),
+        title: Text(widget.cat),
       ),
       body: isLoading
           ? Center(
@@ -61,7 +60,7 @@ class _WallsState extends State<Walls> {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ShowImage(imageurl +
+                        builder: (context) => ShowImage(usersapi.imageurl +
                             usersapi.images[index].dirname +
                             '/' +
                             usersapi.images[index].filename),
@@ -70,7 +69,7 @@ class _WallsState extends State<Walls> {
                     child: Hero(
                       child: FadeInImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(imageurl +
+                        image: NetworkImage(usersapi.imageurl +
                             usersapi.images[index].dirname +
                             '/' +
                             usersapi.images[index].filename),

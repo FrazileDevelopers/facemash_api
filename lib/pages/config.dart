@@ -1,3 +1,5 @@
+import 'package:facemash_api/constanse/facemash.dart';
+
 import 'HomePage.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,7 @@ class _ConfigState extends State<Config> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'fetch API',
+      title: Facemash.appname,
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

@@ -1,11 +1,11 @@
-class Facemash {
-  Facemash({
+class FacemashAPI {
+  FacemashAPI({
     this.categories,
   });
 
   List<Category> categories;
 
-  factory Facemash.fromJson(Map<String, dynamic> json) => Facemash(
+  factory FacemashAPI.fromJson(Map<String, dynamic> json) => FacemashAPI(
         categories: json["Categories"] == null
             ? null
             : List<Category>.from(
