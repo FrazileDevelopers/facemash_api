@@ -28,7 +28,56 @@ class _ShowImageState extends State<ShowImage> {
                 fit: BoxFit.cover,
                 alignment: Alignment.center,
                 fadeInCurve: Curves.bounceIn,
-                fadeInDuration: Duration(milliseconds: 1000),
+                fadeInDuration: Duration(milliseconds: 500),
+              ),
+              Positioned(
+                bottom: MediaQuery.of(context).size.height * .07,
+                left: MediaQuery.of(context).size.width * .08,
+                right: MediaQuery.of(context).size.width * .27,
+                child: MaterialButton(
+                  splashColor: Colors.grey[100],
+                  color: Colors.white.withOpacity(.47),
+                  textColor: Colors.white,
+                  elevation: 5.0,
+                  height: 40.0,
+                  // focusColor: Colors.orange,
+                  // minWidth: 50.0,
+                  child: Text("Download"),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Positioned(
+                bottom: MediaQuery.of(context).size.height * .07,
+                // right: MediaQuery.of(context).size.width * .2,
+                left: MediaQuery.of(context).size.width * .72,
+                child: IconButton(
+                  icon: Icon(Icons.share),
+                  onPressed: () {},
+                  color: Colors.white,
+                ),
+              ),
+              Positioned(
+                bottom: MediaQuery.of(context).size.height * .07,
+                // right: MediaQuery.of(context).size.width * .2,
+                left: MediaQuery.of(context).size.width * .84,
+                child: IconButton(
+                  icon: Icon(Icons.wallpaper),
+                  onPressed: () {},
+                  color: Colors.white,
+                ),
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    AppBar(elevation: 0.0, backgroundColor: Colors.transparent),
+                  ],
+                ),
               ),
             ],
           ),

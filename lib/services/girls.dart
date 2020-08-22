@@ -1,25 +1,29 @@
-class Girls {
-  Girls({
-    this.girls,
+class Images {
+  Images({
+    this.imageurl,
+    this.images,
   });
 
-  List<Girl> girls;
+  String imageurl;
+  List<Image> images;
 
-  factory Girls.fromJson(Map<String, dynamic> json) => Girls(
-        girls: json["Girls"] == null
+  factory Images.fromJson(Map<String, dynamic> json) => Images(
+        imageurl: json["imageurl"] == null ? null : json["imageurl"],
+        images: json["images"] == null
             ? null
-            : List<Girl>.from(json["Girls"].map((x) => Girl.fromJson(x))),
+            : List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
-        "Girls": girls == null
+        "imageurl": imageurl == null ? null : imageurl,
+        "images": images == null
             ? null
-            : List<dynamic>.from(girls.map((x) => x.toJson())),
+            : List<dynamic>.from(images.map((x) => x.toJson())),
       };
 }
 
-class Girl {
-  Girl({
+class Image {
+  Image({
     this.imageId,
     this.filename,
     this.score,
@@ -39,7 +43,7 @@ class Girl {
   String downloads;
   String performance;
 
-  factory Girl.fromJson(Map<String, dynamic> json) => Girl(
+  factory Image.fromJson(Map<String, dynamic> json) => Image(
         imageId: json["image_id"] == null ? null : json["image_id"],
         filename: json["filename"] == null ? null : json["filename"],
         score: json["score"] == null ? null : json["score"],

@@ -9,9 +9,10 @@ class Config extends StatefulWidget {
 class _ConfigState extends State<Config> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'fetch API',
-    debugShowCheckedModeBanner: false,
-    home: HomePage(),
+    return MaterialApp(
+      title: 'fetch API',
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
