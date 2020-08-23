@@ -45,6 +45,10 @@ class _WallsState extends State<Walls> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.cat),
+        backgroundColor: Color(
+          0xFF660000,
+        ),
+        centerTitle: true,
       ),
       body: isLoading
           ? Center(

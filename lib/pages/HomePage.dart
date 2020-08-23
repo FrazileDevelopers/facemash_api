@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'package:facemash_api/pages/about.dart';
 import 'package:facemash_api/pages/walls.dart';
 import 'package:facemash_api/constanse/facemash.dart';
 import '../services/response.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:facemash_api/widget/widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +15,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   FacemashAPI usersapi;
   bool isLoading = false;
+
+  void choiceAction(String choice) {
+    if (choice == Facemash.info) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return AppInfo();
+      }));
+    }
+  }
 
   fetchData() async {
     setState(() {
@@ -41,8 +51,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Color(0xFF660000),
       appBar: AppBar(
-        title: Text("Facemash API"),
+        backgroundColor: Color(0xFF660000),
+        title: brandName(),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: choiceAction,
+            itemBuilder: (BuildContext context) {
+              return Facemash.choices.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(
+                    choice,
+                  ),
+                );
+              }).toList();
+            },
+          ),
+        ],
       ),
       body: isLoading
           ? Center(
@@ -57,10 +84,15 @@ class _HomePageState extends State<HomePage> {
                         Walls(usersapi.categories[index].category),
                   ),
                 ),
-                title: Text(usersapi.categories[index].category),
+                title: Text(
+                  usersapi.categories[index].category,
+                  style: TextStyle(
+                    color: Color(0xFF660000),
+                  ),
+                ),
               ),
               separatorBuilder: (context, index) => Divider(
-                color: Colors.black,
+                color: Color(0xFF660000),
               ),
               itemCount: usersapi.categories.length,
             ),
