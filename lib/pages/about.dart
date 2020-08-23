@@ -21,46 +21,61 @@ class _AppInfoState extends State<AppInfo> {
         ),
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            Facemash.appname,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24.0,
-            ),
-          ),
-          Padding(padding: EdgeInsets.all(8)),
-          Text(
-            Facemash.appversion,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24.0,
-            ),
-          ),
-          Column(
-            children: <Widget>[
-              Padding(padding: EdgeInsets.all(8)),
-              Text(
-                "Devloped By",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24.0,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              Facemash.appname,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24.0,
               ),
-              Text(
-                "Parth Aggarwal & Mohd. Sahil",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24.0,
+            ),
+            // Padding(padding: EdgeInsets.only(bottom: 300)),
+            Column(
+              children: <Widget>[
+                Padding(padding: EdgeInsets.only(top: 300)),
+                Text(
+                  Facemash.appversion,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.0,
+                  ),
                 ),
-              )
-            ],
-          ),
-        ],
-      )),
+                Column(
+                  children: <Widget>[
+                    Padding(padding: EdgeInsets.all(10)),
+                    Text(
+                      "Developed By",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.all(5)),
+                    Text(
+                      "Parth Aggarwal",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.all(5)),
+                    Text(
+                      "Mohd. Sahil",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
