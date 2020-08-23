@@ -32,6 +32,7 @@ class _AppInfoState extends State<AppInfo> {
               fontSize: 24.0,
             ),
           ),
+          Padding(padding: EdgeInsets.all(8)),
           Text(
             Facemash.appversion,
             style: TextStyle(
@@ -49,7 +50,6 @@ class _AppInfoState extends State<AppInfo> {
                   fontSize: 24.0,
                 ),
               ),
-              Padding(padding: EdgeInsets.all(8)),
               Text(
                 "Parth Aggarwal & Mohd. Sahil",
                 style: TextStyle(
