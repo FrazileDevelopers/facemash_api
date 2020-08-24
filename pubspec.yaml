@@ -1,4 +1,4 @@
-name: facemash_api
+name: fz.facemash
 description: A new Flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -20,17 +20,25 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.7.5
+  flutter_rename_app: ^1.0.0
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/facemash.png"
+
+flutter_rename_app:
+  application_name: Facemash
+  dart_package_name: fz.facemash
+  application_id: com.fz.facemash
+  bundle_id: com.fz.facemash
+  android_package_name: com.fz.facemash
+
 flutter:
   uses-material-design: true
   assets:
     - assets/
     # - assets/facemash.png
-
   # fonts:
   #   - family: Schyler
   #     fonts:

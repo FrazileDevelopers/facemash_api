@@ -1,4 +1,4 @@
-import 'package:facemash_api/constanse/facemash.dart';
+import 'package:fz.facemash/constants/facemash.dart';
 import 'package:flutter/material.dart';
 
 class AppInfo extends StatefulWidget {

@@ -1,4 +1,4 @@
-package com.example.facemash_api
+package com.fz.facemash
 
 import io.flutter.embedding.android.FlutterActivity
 

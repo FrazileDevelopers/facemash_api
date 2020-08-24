@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:facemash_api/pages/about/about.dart';
-import 'package:facemash_api/pages/wallpapers/walls.dart';
-import 'package:facemash_api/constanse/facemash.dart';
+import 'package:fz.facemash/pages/about/about.dart';
+import 'package:fz.facemash/pages/wallpapers/walls.dart';
+import 'package:fz.facemash/constants/facemash.dart';
 import '../../services/response.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:facemash_api/widget/widget.dart';
+import 'package:fz.facemash/widget/widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
