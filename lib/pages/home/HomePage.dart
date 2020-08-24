@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:facemash_api/pages/about.dart';
-import 'package:facemash_api/pages/walls.dart';
+import 'package:facemash_api/pages/about/about.dart';
+import 'package:facemash_api/pages/wallpapers/walls.dart';
 import 'package:facemash_api/constanse/facemash.dart';
-import '../services/response.dart';
+import '../../services/response.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:facemash_api/widget/widget.dart';

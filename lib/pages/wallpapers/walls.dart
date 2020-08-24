@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:facemash_api/constanse/facemash.dart';
-import 'package:facemash_api/pages/show_image.dart';
+import 'package:facemash_api/pages/fullscreen/show_image.dart';
 import 'package:facemash_api/services/girls.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
