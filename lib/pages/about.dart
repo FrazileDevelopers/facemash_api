@@ -12,7 +12,8 @@ class _AppInfoState extends State<AppInfo> {
     return Scaffold(
       backgroundColor: Color(0xFF660000),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xFF660000),
+        elevation: 0.0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
