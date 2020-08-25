@@ -1,9 +1,10 @@
-import 'dart:convert';
 import 'package:fz.facemash/pages/about/about.dart';
 import 'package:fz.facemash/pages/wallpapers/walls.dart';
 import 'package:fz.facemash/constants/facemash.dart';
+import 'package:fz.facemash/providers/fetchcat.dart';
+import 'package:provider/provider.dart';
 import '../../services/response.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
 import 'package:fz.facemash/widget/widget.dart';
 
@@ -13,9 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  FacemashAPI usersapi;
-  bool isLoading = false;
-
   void choiceAction(String choice) {
     if (choice == Facemash.info) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -24,22 +22,22 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  fetchData() async {
-    setState(() {
-      isLoading = true;
-    });
-    var res = await http.get(Facemash.url);
-    var decodedRes = jsonDecode(res.body);
-    // print(decodedRes.toString());
-    usersapi = FacemashAPI.fromJson(decodedRes);
-    setState(() {
-      isLoading = false;
-    });
-  }
+  // fetchData() async {
+  //   setState(() {
+  //     isLoading = true;
+  //   });
+  //   var res = await http.get(Facemash.url);
+  //   var decodedRes = jsonDecode(res.body);
+  //   // print(decodedRes.toString());
+  //   usersapi = FacemashAPI.fromJson(decodedRes);
+  //   setState(() {
+  //     isLoading = false;
+  //   });
+  // }
 
   @override
   void initState() {
-    fetchData();
+    Provider.of<Fetchcat>(context, listen: false).fetchData();
     super.initState();
   }
 
@@ -50,6 +48,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final categories = Provider.of<Fetchcat>(context);
     return Scaffold(
       // backgroundColor: Color(0xFF660000),
       appBar: AppBar(
@@ -71,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: isLoading
+      body: categories.isfetching
           ? Center(
               child: CircularProgressIndicator(),
             )
@@ -81,11 +80,11 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        Walls(usersapi.categories[index].category),
+                        Walls(categories.getWalls()[index].category),
                   ),
                 ),
                 title: Text(
-                  usersapi.categories[index].category,
+                  categories.getWalls()[index].category,
                   style: TextStyle(
                     color: Color(0xFF660000),
                   ),
@@ -94,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               separatorBuilder: (context, index) => Divider(
                 color: Color(0xFF660000),
               ),
-              itemCount: usersapi.categories.length,
+              itemCount: categories.getWalls().length,
             ),
     );
   }

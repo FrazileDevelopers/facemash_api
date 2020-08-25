@@ -15,6 +15,8 @@ dependencies:
   http: ^0.12.2
   cached_network_image: ^2.2.0+1
   in_app_purchase: ^0.3.4+3
+  provider: ^4.3.2+1
+  connectivity: ^0.4.9+2
 
 dev_dependencies:
   flutter_test:
@@ -45,3 +47,4 @@ flutter:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
+
